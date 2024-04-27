@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Hockey Field</title>
+    <link href="css01.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <script type="text/javascript" src="js01.js"></script>
+    <div id="hockey-field-container">
+        <img id="hockey-field" src="rinkImage.jpg" alt="Hockey Field">
+        <div id="notes-container"></div>
+    </div>
+	
+	<label for="game-date-input">Game Date:</label>
+	<input type="text" id="game-date-input">
+	
+    <label for="team-input">Team:</label>
+	<input type="text" id="team-input" value="NJD">
+	
+	<label for="opponent-input">Opponent:</label>
+	<input type="text" id="opponent-input" value="NYR">
+	<br>
+	
+	<label for="dot-color-select">Dot Color:</label>
+	<select id="dot-color-select">
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+	<option value="black">Black</option>
+    <!-- Add more options for other colors if needed -->
+	</select>
+
+	
+	<br><br>
+
+    <button id="export-notes-btn">Export Notes</button>
+    <button id="clear-notes-btn">Clear Notes</button>
+    <button id="remove-last-note-btn">Remove Last Note</button>
+    <button id="toggle-notes-btn">Toggle Notes Visibility</button>
+    <p id="visibility-state"></p>
+
+    <script src="js02.js"></script>
+</body>
+</html>
