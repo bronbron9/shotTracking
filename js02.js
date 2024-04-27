@@ -114,3 +114,21 @@ function getCurrentDate() {
 
 // Set the default value for the "Game Date" input field
 document.getElementById('game-date-input').value = getCurrentDate();
+
+
+// Function to toggle notes visibility
+function toggleNotesVisibility() {
+    var notesContainer = document.getElementById('notes-container');
+    // Toggle the visibility by toggling the CSS display property
+    if (notesContainer.style.display === 'none' || notesContainer.style.display === '') {
+        notesContainer.style.display = 'block';
+    } else {
+        notesContainer.style.display = 'none';
+    }
+    // Update the visibility state text based on the current state
+    updateVisibilityStateText(notesContainer.style.display !== 'none');
+}
+
+// Event listener for the "Toggle Notes Visibility" button
+document.getElementById('toggle-notes-btn').addEventListener('click', toggleNotesVisibility);
+
