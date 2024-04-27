@@ -21,7 +21,7 @@ function handleClick(event) {
         var team = teamInput.value.trim();
         var gameDate = gameDateInput.value.trim();
         var opponent = opponentInput.value.trim();
-        var noteText = gameDate + ", " + team + ", " + opponent + ", " + prompt("Enter your note:") + ", " + x + ", " + y;
+        var noteText = gameDate + ", " + team + ", " + opponent + ", " + prompt("Player Name:") + ", " + x + ", " + y;
 
         if (noteText) {
             noteIndex++; // Increment the note index
