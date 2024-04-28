@@ -1,3 +1,3 @@
-# shotTracking
 NHL Shot Tracking App
-Hello World! Wanted to build something to make tracking NHL shot data a bit easier. Hope this helps.
+Interactive NHL Ice Rink Map. Click on location and X,Y rink coordinates are returned and setup as exportable shot data.
+> NHL Rink Dimensions
