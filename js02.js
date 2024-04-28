@@ -27,9 +27,10 @@ function handleClick(event) {
     var team = document.getElementById('team-input').value;
     var opponent = document.getElementById('opponent-input').value;
     var userNote = prompt("Player Name:");
+	var misc = document.getElementById('misc-input').value;
 
     if (userNote) {
-        var noteText = ++noteIndex + ". " + userNote +", "+ x + ", "+ y;
+        var noteText = ++noteIndex + ". " + userNote+", "+x+", "+y;
         var note = document.createElement('div');
         note.className = 'note';
         note.style.left = event.clientX + 'px';
@@ -45,7 +46,7 @@ function handleClick(event) {
 
         // Add shot data to table
         var newRow = shotTableBody.insertRow();
-        newRow.innerHTML = `<td>${noteIndex}</td><td>${userNote}</td><td>${x}</td><td>${y}</td><td>${gameDate}</td><td>${team}</td><td>${opponent}</td>`;
+        newRow.innerHTML = `<td>${noteIndex}</td><td>${userNote}</td><td>${x}</td><td>${y}</td><td>${gameDate}</td><td>${team}</td><td>${opponent}</td><td>${misc}</td>`;
     }
 }
 
@@ -99,6 +100,24 @@ function clearNotes() {
     noteIndex = 0; // Reset note index counter
 }
 
+// Function to increase font size of notes
+function increaseFontSize() {
+    var notes = document.querySelectorAll('.note');
+    notes.forEach(note => {
+        var currentFontSize = parseInt(window.getComputedStyle(note).getPropertyValue('font-size'));
+        note.style.fontSize = (currentFontSize + 2) + 'px';
+    });
+}
+
+// Function to decrease font size of notes
+function decreaseFontSize() {
+    var notes = document.querySelectorAll('.note');
+    notes.forEach(note => {
+        var currentFontSize = parseInt(window.getComputedStyle(note).getPropertyValue('font-size'));
+        note.style.fontSize = (currentFontSize - 2) + 'px';
+    });
+}
+
 // Call the function to populate game date field with today's date
 populateGameDate();
 
@@ -107,3 +126,5 @@ document.getElementById('hockey-field-container').addEventListener('click', hand
 document.getElementById('remove-last-note-btn').addEventListener('click', removeLastNote);
 document.getElementById('export-notes-btn').addEventListener('click', exportNotes);
 document.getElementById('clear-notes-btn').addEventListener('click', clearNotes);
+document.getElementById('increase-font-btn').addEventListener('click', increaseFontSize);
+document.getElementById('decrease-font-btn').addEventListener('click', decreaseFontSize);
