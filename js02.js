@@ -100,23 +100,6 @@ function clearNotes() {
     noteIndex = 0; // Reset note index counter
 }
 
-// Function to increase font size of notes
-function increaseFontSize() {
-    var notes = document.querySelectorAll('.note');
-    notes.forEach(note => {
-        var currentFontSize = parseInt(window.getComputedStyle(note).getPropertyValue('font-size'));
-        note.style.fontSize = (currentFontSize + 2) + 'px';
-    });
-}
-
-// Function to decrease font size of notes
-function decreaseFontSize() {
-    var notes = document.querySelectorAll('.note');
-    notes.forEach(note => {
-        var currentFontSize = parseInt(window.getComputedStyle(note).getPropertyValue('font-size'));
-        note.style.fontSize = (currentFontSize - 2) + 'px';
-    });
-}
 
 // Call the function to populate game date field with today's date
 populateGameDate();
@@ -126,5 +109,17 @@ document.getElementById('hockey-field-container').addEventListener('click', hand
 document.getElementById('remove-last-note-btn').addEventListener('click', removeLastNote);
 document.getElementById('export-notes-btn').addEventListener('click', exportNotes);
 document.getElementById('clear-notes-btn').addEventListener('click', clearNotes);
-document.getElementById('increase-font-btn').addEventListener('click', increaseFontSize);
-document.getElementById('decrease-font-btn').addEventListener('click', decreaseFontSize);
+
+
+// Function to switch the values of 'team-input' and 'opponent-input'
+function switchTeams() {
+    var teamInput = document.getElementById('team-input');
+    var opponentInput = document.getElementById('opponent-input');
+
+    var temp = teamInput.value;
+    teamInput.value = opponentInput.value;
+    opponentInput.value = temp;
+}
+
+// Event listener for click event on the switch button
+document.getElementById('switch-teams-btn').addEventListener('click', switchTeams);
