@@ -20,13 +20,6 @@
     font-weight: bold; /* Make the user input text bold */
 }
 
-#notes-container {
-    display: block; /* Ensure the container is initially visible */
-    /* Add other styles as needed */
-}
-
-
-
 .dot {
     position: absolute;
     width: 10px; /* Adjust dot size as needed */

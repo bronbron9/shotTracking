@@ -1,134 +1,109 @@
-// Keep track of the number of notes created
-var noteIndex = 0;
+var noteIndex = 0; // Initialize note index counter
 
-// Function to handle click events on the hockey field
+// Auto-populate game date field with today's date
+function populateGameDate() {
+    var today = new Date();
+    var year = today.getFullYear();
+    var month = String(today.getMonth() + 1).padStart(2, '0'); // Adding padding for month
+    var day = String(today.getDate()).padStart(2, '0'); // Adding padding for day
+    var formattedDate = year + '-' + month + '-' + day;
+    document.getElementById('game-date-input').value = formattedDate;
+}
+
+// Function to handle click event on the rink image
 function handleClick(event) {
-    if (event.target.id === 'hockey-field') {
-        var notesContainer = document.getElementById('notes-container');
-        var hockeyField = document.getElementById('hockey-field');
-        var teamInput = document.getElementById('team-input');
-        var gameDateInput = document.getElementById('game-date-input');
-        var opponentInput = document.getElementById('opponent-input');
-        var dotColorSelect = document.getElementById('dot-color-select');
+    var notesContainer = document.getElementById('notes-container');
+    var shotTableBody = document.querySelector('#shot-table tbody');
+    var hockeyField = document.getElementById('hockey-field');
 
-        var rect = hockeyField.getBoundingClientRect();
-        var scaleX = hockeyField.naturalWidth / hockeyField.width;
-        var scaleY = hockeyField.naturalHeight / hockeyField.height;
+    var rect = hockeyField.getBoundingClientRect();
+    var scaleX = hockeyField.naturalWidth / hockeyField.width;
+    var scaleY = hockeyField.naturalHeight / hockeyField.height;
 
-        var x = Math.round(((event.clientX - rect.left) * scaleX) / 1600 * 200);
-        var y = Math.round(((event.clientY - rect.top) * scaleY) / 680 * 80);
+    var x = Math.round(((event.clientX - rect.left) * scaleX) / 1600 * 200);
+    var y = Math.round(((event.clientY - rect.top) * scaleY) / 680 * 80);
 
-        var team = teamInput.value.trim();
-        var gameDate = gameDateInput.value.trim();
-        var opponent = opponentInput.value.trim();
-        var noteText = gameDate + ", " + team + ", " + opponent + ", " + prompt("Player Name:") + ", " + x + ", " + y;
+    var gameDate = document.getElementById('game-date-input').value;
+    var team = document.getElementById('team-input').value;
+    var opponent = document.getElementById('opponent-input').value;
+    var userNote = prompt("Player Name:");
 
-        if (noteText) {
-            noteIndex++; // Increment the note index
-            var note = document.createElement('div');
-            note.className = 'note';
-            note.style.left = event.clientX + 'px';
-            note.style.top = event.clientY + 'px';
-            note.textContent = noteIndex + ', ' + noteText; // Add index to note text
-            notesContainer.appendChild(note);
+    if (userNote) {
+        var noteText = ++noteIndex + ". " + userNote +", "+ x + ", "+ y;
+        var note = document.createElement('div');
+        note.className = 'note';
+        note.style.left = event.clientX + 'px';
+        note.style.top = event.clientY + 'px';
+        note.textContent = noteText;
+        notesContainer.appendChild(note);
 
-            var dot = document.createElement('div');
-            dot.className = 'dot';
-            var selectedColor = dotColorSelect.value; // Get the selected color
-            dot.style.backgroundColor = selectedColor; // Set the background color of the dot
-            dot.style.left = (event.clientX - 12.5) + 'px'; // Adjust for dot size
-            dot.style.top = (event.clientY - 12.5) + 'px'; // Adjust for dot size
-            notesContainer.appendChild(dot);
-        }
+        var dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.style.left = (event.clientX - 12.5) + 'px'; // Adjust for dot size
+        dot.style.top = (event.clientY - 12.5) + 'px'; // Adjust for dot size
+        notesContainer.appendChild(dot);
+
+        // Add shot data to table
+        var newRow = shotTableBody.insertRow();
+        newRow.innerHTML = `<td>${noteIndex}</td><td>${userNote}</td><td>${x}</td><td>${y}</td><td>${gameDate}</td><td>${team}</td><td>${opponent}</td>`;
     }
 }
 
-// Function to remove the last note and its corresponding dot
+// Function to remove the last added note
 function removeLastNote() {
     var notesContainer = document.getElementById('notes-container');
+    var shotTableBody = document.querySelector('#shot-table tbody');
     var notes = notesContainer.querySelectorAll('.note');
     var dots = notesContainer.querySelectorAll('.dot');
+
     if (notes.length > 0) {
         var lastNote = notes[notes.length - 1];
         var lastDot = dots[dots.length - 1];
+
         notesContainer.removeChild(lastNote);
         notesContainer.removeChild(lastDot);
-        noteIndex--; // Decrement the note index when a note is removed
+        shotTableBody.deleteRow(-1); // Remove the last row from the table
+
+        noteIndex--; // Decrement the note index
     }
 }
 
-
-// Event listener for the "Remove Last Note" button
-document.getElementById('remove-last-note-btn').addEventListener('click', removeLastNote);
-
-// Function to clear all notes and reset note index
-function clearNotes() {
-    var notesContainer = document.getElementById('notes-container');
-    notesContainer.innerHTML = ''; // Clear all child elements
-    noteIndex = 0; // Reset note index when all notes are cleared
-}
-
-// Event listener for the "Clear Notes" button
-document.getElementById('clear-notes-btn').addEventListener('click', clearNotes);
-
-// Event listener for the hockey field click events
-document.getElementById('hockey-field-container').addEventListener('click', handleClick);
-
-// Event listener for the "Export Notes" button
-document.getElementById('export-notes-btn').addEventListener('click', function() {
-    var notes = document.querySelectorAll('.note');
-    if (notes.length === 0) {
+// Function to export notes as CSV
+function exportNotes() {
+    var rows = document.querySelectorAll('#shot-table tbody tr');
+    if (rows.length === 0) {
         alert("No notes to export!");
         return;
     }
 
-    // Prepend the header line to the notes text
-    var headerLine = "index, gameDate, team, opponent, player, locX, locY\n";
-    var notesText = Array.from(notes).map(function(note) {
-        return note.textContent;
-    }).join('\n');
-    notesText = headerLine + notesText;
+    var csvContent = "data:text/csv;charset=utf-8,";
+    rows.forEach(row => {
+        var rowData = Array.from(row.cells).map(cell => cell.textContent).join(",");
+        csvContent += rowData + "\n";
+    });
 
-    var blob = new Blob([notesText], { type: 'text/plain' });
-    var url = URL.createObjectURL(blob);
-
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'notes.txt';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-});
-
-
-
-// Function to get the current date in the format YYYY-MM-DD
-function getCurrentDate() {
-    var today = new Date();
-    var year = today.getFullYear();
-    var month = String(today.getMonth() + 1).padStart(2, '0');
-    var day = String(today.getDate()).padStart(2, '0');
-    return year + '-' + month + '-' + day;
+    var encodedUri = encodeURI(csvContent);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "shot_data.csv");
+    document.body.appendChild(link);
+    link.click();
 }
 
-// Set the default value for the "Game Date" input field
-document.getElementById('game-date-input').value = getCurrentDate();
-
-
-// Function to toggle notes visibility
-function toggleNotesVisibility() {
+// Function to clear all notes
+function clearNotes() {
     var notesContainer = document.getElementById('notes-container');
-    // Toggle the visibility by toggling the CSS display property
-    if (notesContainer.style.display === 'none' || notesContainer.style.display === '') {
-        notesContainer.style.display = 'block';
-    } else {
-        notesContainer.style.display = 'none';
-    }
-    // Update the visibility state text based on the current state
-    updateVisibilityStateText(notesContainer.style.display !== 'none');
+    var shotTableBody = document.querySelector('#shot-table tbody');
+    notesContainer.innerHTML = ''; // Clear all child elements
+    shotTableBody.innerHTML = ''; // Clear all rows
+    noteIndex = 0; // Reset note index counter
 }
 
-// Event listener for the "Toggle Notes Visibility" button
-document.getElementById('toggle-notes-btn').addEventListener('click', toggleNotesVisibility);
+// Call the function to populate game date field with today's date
+populateGameDate();
 
+// Event listeners for click events on the rink image and buttons
+document.getElementById('hockey-field-container').addEventListener('click', handleClick);
+document.getElementById('remove-last-note-btn').addEventListener('click', removeLastNote);
+document.getElementById('export-notes-btn').addEventListener('click', exportNotes);
+document.getElementById('clear-notes-btn').addEventListener('click', clearNotes);
