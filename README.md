@@ -1,3 +1,5 @@
+*Latest Version: ShotTracker_v07.html | css07.css | script_07.js
+
 NHL Shot Tracking App.
 
 Interactive NHL Ice Rink Map. Click on location and X,Y rink coordinates are returned and setup as exportable shot data.
