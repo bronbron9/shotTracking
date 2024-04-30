@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+
+.dot {
+    fill: red;
+    stroke: none;
+    r: 2;
+}
+
+.dot-label {
+    font-size: 7px;
+	font-weight: 100;
+	font-optical-sizing: auto;
+    fill: #11111; /* Color of the text */
+    
+}
+
