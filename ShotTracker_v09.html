@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NHL Shot Tracker</title>
+<link href="css09.css" rel="stylesheet" type="text/css">
+<script src="script_09.js" defer></script>
+</head>
+
+<body>
+
+<div id="svgContainer">	
+	<svg id="rinkSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 603.67 258.04">
+    <defs>
+        <style>
+            .z{stroke:#ff8080;}
+            .z,.aa{stroke-width:3px;}
+            .z,.aa,.ab,.ac{fill:none;stroke-miterlimit:10;}
+            .aa{stroke:#8080ff;}
+            .ab,.ac{stroke:#7f7f7f;}
+            .ad{fill:#7f7f7f;}
+            .ad,.ae{stroke-width:0px;}
+            .ae{fill:#ff8080;}
+            .ac{stroke-width:.5px;}
+        </style>
+    </defs>
+    <g id="a"><circle id="b" class="ac" cx="301.83" cy="129.02" r="42.78"/><circle id="c" class="ae" cx="301.83" cy="129.02" r="4"/><g id="d"><circle id="e" class="ac" cx="96.83" cy="64.3" r="42.78"/><circle id="f" class="ad" cx="96.83" cy="64.3" r="4"/><line class="ac" x1="88.17" y1="106.23" x2="88.17" y2="113.96"/><line class="ac" x1="105.06" y1="106.27" x2="105.06" y2="113.96"/><line class="ac" x1="88.17" y1="13.8" x2="88.17" y2="22.41"/><line class="ac" x1="105.06" y1="13.8" x2="105.06" y2="22.27"/></g><g id="g"><circle id="h" class="ac" cx="96.83" cy="194.52" r="42.78"/><circle id="i" class="ad" cx="96.83" cy="194.52" r="4"/><line class="ac" x1="88.17" y1="236.35" x2="88.17" y2="244.19"/><line class="ac" x1="105.06" y1="236.41" x2="105.06" y2="244.19"/><line class="ac" x1="88.17" y1="144.02" x2="88.17" y2="152.57"/><line class="ac" x1="105.06" y1="144.02" x2="105.06" y2="152.57"/></g><g id="j"><circle id="k" class="ac" cx="507.5" cy="64.3" r="42.78"/><circle id="l" class="ad" cx="507.5" cy="64.3" r="4"/><line class="ac" x1="498.83" y1="106.1" x2="498.83" y2="113.96"/><line class="ac" x1="515.72" y1="106.21" x2="515.72" y2="113.96"/><line class="ac" x1="498.83" y1="13.8" x2="498.83" y2="22.35"/><line class="ac" x1="515.72" y1="13.8" x2="515.72" y2="22.32"/></g><g id="m"><circle id="n" class="ac" cx="507.5" cy="194.52" r="42.78"/><circle id="o" class="ad" cx="507.5" cy="194.52" r="4"/><line class="ac" x1="498.83" y1="236.41" x2="498.83" y2="244.19"/><line class="ac" x1="515.72" y1="236.49" x2="515.72" y2="244.19"/><line class="ac" x1="498.83" y1="144.02" x2="498.83" y2="152.6"/><line class="ac" x1="515.72" y1="144.02" x2="515.72" y2="152.57"/></g></g><g id="p"><line id="q" class="aa" x1="227.17" y1=".44" x2="227.17" y2="257.52"/><line id="r" class="z" x1="301.83" y1=".41" x2="301.83" y2="257.6"/><line id="s" class="aa" x1="376.72" y1=".46" x2="376.72" y2="257.77"/><line id="t" class="ac" x1="37.5" y1="1.07" x2="37.5" y2="256.69"/><line id="u" class="ac" x1="567.39" y1="1.02" x2="567.39" y2="256.41"/><rect id="v" class="ab" x=".5" y=".5" width="602.67" height="257.04" rx="45" ry="45"/></g><g id="w"><path id="x" class="ac" d="M37.5,118.19h-3.54c-3.3,0-6,2.7-6,6v9.67c0,3.3,2.7,6,6,6h3.54v-21.67Z"/><path id="y" class="ac" d="M567.39,118.19h3.54c3.3,0,6,2.7,6,6v9.67c0,3.3-2.7,6-6,6h-3.54v-21.67Z"/></g></svg>
+</div>
+
+<br>
+	
+<label for="game-date-input">Game Date:</label>
+<input type="text" id="game-date-input">
+
+<label for="team-input">Team:</label>
+<input type="text" id="team-input" value="NJD">
+
+<label for="opponent-input">Opponent:</label>
+<input type="text" id="opponent-input" value="NYR">
+
+<label for="misc-input">Misc:</label>
+<input type="text" id="misc-input" value="5v5">
+
+
+<br><br>
+<button class="button-16" id="switch-teams-btn">Flip Teams</button>
+<button class="button-16" id="remove-button">Remove Last</button>
+<button class="button-16" id="size-down-btn">Font Size -</button>
+<button class="button-16" id="size-up-btn">Font Size +</button>
+
+
+<br><br>
+
+<table id="dotTable" class="greyGridTable">
+	<thead>
+		<tr>
+			<th>index</th>
+			<th>playerName</th>
+			<th>gameDate</th>
+			<th>team</th>
+			<th>opponent</th>
+			<th>misc</th>
+			<th>locX</th>
+			<th>locY</th>
+		</tr>
+	</thead>
+	<tfoot></tfoot>
+	<tbody>
+		<tr></tr>
+		<!-- Dot information will be dynamically added here -->
+	</tbody>
+</table>
+
+<br><br>
+<button class="button-16" id="exportButton">Export Data</button>
+	
+</body>
+</html>
