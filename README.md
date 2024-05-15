@@ -1,9 +1,8 @@
-*Latest Version: ShotTracker_v09.html | css09.css | script_09.js
+NHL Shot Tracking Assistant.
+Interactive Ice Rink Map. Click on rink and X,Y rink coordinates are returned. Data entry fields available. Live data table view. Exportable shot data as csv.
 
-NHL Shot Tracking App.
+North American or 'NHL' Rink Dimnsions 200' x 85'
 
-Interactive NHL Ice Rink Map. Click on location and X,Y rink coordinates are returned and setup as exportable shot data.
 
-- NHL Ice Rink Dimensions
-- International Rink to follow
-- What other features would be useful?
+
+*Latest Version: ShotTracker_v14.html | css14.css | script_14.js
