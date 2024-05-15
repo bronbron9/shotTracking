@@ -6,14 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentFontSize = defaultFontSize; // Current font size
     var dotColor = 'red'; // Default dot color
 	
-	
-	
-	
-        
 
-       
-        
-	
 
     // Autopopulate game date input with today's date
     var currentDate = new Date();
@@ -89,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var csvContent = 'data:text/csv;charset=utf-8;';
 
         // Include headers
-        csvContent += 'index,playerName,gameDate,team,opponent,misc,locX,locY\n';
+        csvContent += 'index,index,playerName,gameDate,team,opponent,misc,locX,locY\n';
 
         var rows = dotTable.querySelectorAll('tr');
         rows.forEach(function(row, rowIndex) {
