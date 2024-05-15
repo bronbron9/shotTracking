@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NHL Shot Tracker</title>
+<link href="css14.css" rel="stylesheet" type="text/css">
+<script src="script_14.js" defer></script>
+</head>
+
+<body>
+
+
+<div id="svgContainer">	
+	<svg id="rinkSvg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 600 255">
+    <style type="text/css">
+	.st0{fill:none;stroke:#7F7F7F;stroke-width:0.5;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#FF8080;stroke-width:0.5;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#8080FF;stroke-width:3;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#FF8080;stroke-width:3;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#7F7F7F;stroke-width:1.5;stroke-miterlimit:10;}
+	.st5{fill:#FFFFFF;}
+	.st6{fill:#7F7F7F;}
+	.st7{display:none;opacity:0.6;}
+	.st8{display:inline;}
+	.st9{fill:#E04C4C;}
+	.st10{display:inline;fill:#FF83B0;}
+	.st11{display:inline;fill:#F93AF0;}
+	.st12{fill:#FF83B0;}
+	.st13{display:inline;fill:#7F7F7F;}
+	</style>
+	<g id="RINK_x5F_Nets">
+		<path id="NET_x5F_01_00000173146759362463459620000007325186604946643379_" class="st0" d="M33.2,118.5h-3.7c-3.5,0-6.3,2.2-6.3,5
+			v8c0,2.7,2.8,5,6.3,5h3.7V118.5z"/>
+		<path id="NET_x5F_02_00000163777597663225531100000006966463625571049106_" class="st0" d="M566.9,118.5h3.7c3.5,0,6.3,2.2,6.3,5v8
+			c0,2.7-2.8,5-6.3,5h-3.7V118.5z"/>
+		<polygon id="Trapazoid01" class="st0" points="33.2,153.5 0,169.5 0,85.5 33.2,101.5 	"/>
+		<polygon id="Trapazoid02" class="st0" points="566.8,153.5 600,169.5 600,85.5 566.8,101.5 	"/>
+		<path id="Crease01" class="st0" d="M33.2,139.5h13.4c2.9-3.2,4.6-7.4,4.6-12s-1.8-8.8-4.6-12H33.2V139.5z"/>
+		<path id="Crease01_00000061434059177634661210000003894779640333464213_" class="st0" d="M566.8,139.5h-13.4
+			c-2.9-3.2-4.6-7.4-4.6-12s1.8-8.8,4.6-12h13.4V139.5z"/>
+	</g>
+	<g id="RINK_x5F_LINES">
+		<path id="RefsSemiCircle" class="st1" d="M315,255h-30c0-8.3,6.7-15,15-15S315,246.7,315,255z"/>
+		<line id="BLUE_x5F_LINE_x5F_01" class="st2" x1="225" y1="0.1" x2="225" y2="254.8"/>
+		<line id="RED_x5F_LINE_00000103263445616638341120000010391214382891052189_" class="st3" x1="300" y1="0.1" x2="300" y2="254.9"/>
+		<line id="BLUE_x5F_LINE_x5F_02" class="st2" x1="375" y1="0.1" x2="375" y2="255.1"/>
+
+			<line id="GOAL_x5F_LINE_x5F_02_00000152243117993826140760000003986873124003367815_" class="st4" x1="33.2" y1="1" x2="33.2" y2="253.8"/>
+		<line id="GOAL_x5F_LINE_x5F_02" class="st4" x1="566.9" y1="1" x2="566.9" y2="254.1"/>
+		<path id="OUTER" class="st4" d="M557.4,255H42.6C19.1,255,0,235.9,0,212.4V42.6C0,19.1,19.1,0,42.6,0l514.7,0
+			C580.9,0,600,19.1,600,42.6v169.7C600,235.9,580.9,255,557.4,255z"/>
+	</g>
+	<g id="RINK_x5F_CirclesDots">
+		<circle id="Circle_x5F_CenterIce_00000021091600596170269890000012477347965971212475_" class="st0" cx="300" cy="127.5" r="45"/>
+		<circle id="DOT_x5F_CenterIce_00000041276577479292896270000017890452001349401745_" class="st5" cx="300" cy="127.5" r="1.5"/>
+		<g id="CircleGroup_x5F_01">
+			<circle id="Circle_x5F_CenterIce_00000002358744350610078820000010819356617039823290_" class="st0" cx="93" cy="61.5" r="45"/>
+			<circle id="DOT_x5F_CenterIce_00000183237757008707882850000017337652412949964457_" class="st6" cx="93" cy="61.5" r="3"/>
+			<line class="st0" x1="90" y1="106.3" x2="90" y2="112.3"/>
+			<line class="st0" x1="96" y1="106.3" x2="96" y2="112.3"/>
+			<line class="st0" x1="90" y1="10.6" x2="90" y2="16.6"/>
+			<line class="st0" x1="96" y1="10.7" x2="96" y2="16.7"/>
+		</g>
+		<g id="CircleGroup_x5F_01_00000012456776024738081940000014748995159961699248_">
+			<circle id="Circle_x5F_CenterIce_00000042702762111110543790000009706786020620201398_" class="st0" cx="93" cy="193.5" r="45"/>
+			<circle id="DOT_x5F_CenterIce_00000063603049956169513350000010335208305044600994_" class="st6" cx="93" cy="193.5" r="3"/>
+			<line class="st0" x1="90" y1="238.3" x2="90" y2="244.3"/>
+			<line class="st0" x1="96" y1="238.3" x2="96" y2="244.3"/>
+			<line class="st0" x1="90" y1="142.7" x2="90" y2="148.7"/>
+			<line class="st0" x1="96" y1="142.7" x2="96" y2="148.7"/>
+		</g>
+		<g id="CircleGroup_x5F_01_00000148655284777912911660000018093642185269642926_">
+
+				<circle id="Circle_x5F_CenterIce_00000171680872431545148800000017058934134229843878_" class="st0" cx="507.1" cy="193.5" r="45"/>
+			<circle id="DOT_x5F_CenterIce_00000093856423198757353120000007518091323504697014_" class="st6" cx="507.1" cy="193.5" r="3"/>
+			<line class="st0" x1="504.1" y1="238.3" x2="504.1" y2="244.3"/>
+			<line class="st0" x1="510.1" y1="238.3" x2="510.1" y2="244.3"/>
+			<line class="st0" x1="504.1" y1="142.7" x2="504.1" y2="148.7"/>
+			<line class="st0" x1="510.1" y1="142.7" x2="510.1" y2="148.7"/>
+		</g>
+		<g id="CircleGroup_x5F_01_00000013887211583626195570000014852283716132858505_">
+
+				<circle id="Circle_x5F_CenterIce_00000014597132275780249260000000542004369328630703_" class="st0" cx="507.1" cy="61.5" r="45"/>
+			<circle id="DOT_x5F_CenterIce_00000039854275248397509830000011913361277381199508_" class="st6" cx="507.1" cy="61.5" r="3"/>
+			<line class="st0" x1="504.1" y1="106.3" x2="504.1" y2="112.3"/>
+			<line class="st0" x1="510.1" y1="106.3" x2="510.1" y2="112.3"/>
+			<line class="st0" x1="504.1" y1="10.6" x2="504.1" y2="16.6"/>
+			<line class="st0" x1="510.1" y1="10.7" x2="510.1" y2="16.7"/>
+		</g>
+		<circle id="DOT_x5F_FO_x5F_Mid01" class="st6" cx="239.8" cy="193.5" r="3"/>
+		<circle id="DOT_x5F_FO_x5F_Mid02" class="st6" cx="360" cy="193.5" r="3"/>
+		<circle id="DOT_x5F_FO_x5F_Mid03" class="st6" cx="239.8" cy="61.5" r="3"/>
+		<circle id="DOT_x5F_FO_x5F_Mid04" class="st6" cx="360.1" cy="61.5" r="3"/>
+	</g>
+
+	</svg>
+</div>
+	
+
+<br> 	
+<label for="game-date-input" class="input-label">Game Date:</label>
+<input type="text" id="game-date-input"> 
+
+<label for="team-input" class="input-label">Team:</label>
+<input type="text" id="team-input" value="NJD"> 
+
+<label for="opponent-input" class="input-label">Opponent:</label>
+<input type="text" id="opponent-input" value="NYR"> 
+
+<label for="misc-input" class="input-label">Misc:</label>
+<input type="text" id="misc-input" value="5v5"> 
+
+<label for="colorPicker" id="colorLabel">Dot Color:</label>
+<input type="color" id="colorPicker" onchange="changeDotColor()" value="#ff0000">
+
+
+<br><br>
+
+<button class="button-16" id="remove-button">Remove Last</button>
+<button class="button-16" id="switch-teams-btn">Flip Teams</button>
+<button class="button-16" id="size-down-btn">-</button>
+<button class="button-16" id="size-up-btn">+</button>
+
+<br><br>
+
+
+
+
+<h2>Data:</h2>
+	
+<table id="dotTable" class="greyGridTable">
+	<thead>
+		<tr>
+			<th>index</th>
+			<th>player_name</th>
+			<th>game_date</th>
+			<th>team</th>
+			<th>opponent</th>
+			<th>locX</th>
+			<th>locY</th>
+			<th>misc</th>
+		</tr>
+	</thead>
+	<tfoot></tfoot>
+	<tbody contenteditable="true">
+		<tr></tr>
+		<!-- Dot information will be dynamically added here -->
+	</tbody>
+</table>
+
+<br><br>
+<button class="button-16" id="exportButton">Export Data</button>
+	
+	
+	
+</body>
+</html>

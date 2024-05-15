@@ -1,0 +1,219 @@
+@charset "utf-8";
+/* CSS Document */
+
+.dot {
+    
+    stroke: none;
+    r: 2;
+}
+
+.dot-label {
+    font-size: 8px;
+	font-family: arial,sans-serif;
+	font-weight: 100;
+	font-optical-sizing: auto;
+    fill: #11111; /* Color of the text */
+    
+}
+
+
+h2{
+	font-family: arial,sans-serif;
+	font-size: 18px;
+	font-weight: 100;
+}
+
+#svgContainer{
+	position: relative;
+	max-width: 1600px;
+}
+
+
+
+
+#game-date-input, #team-input, #opponent-input, #misc-input{
+	max-width: 120px;
+	border: 1px solid #7F7F7F;
+	background-color: white;
+	font-family: arial,sans-serif;
+	font-size: 14px;
+}
+
+
+#game-date-input:focus, #team-input:focus, #opponent-input:focus, #misc-input:focus{
+	background-color: #DCE5FF;
+}
+
+
+.input-label{
+	font-size: 14px;
+	font-family: arial,sans-serif;
+	/*font-weight: 600;*/
+	padding-right: 10px;
+}
+	
+
+
+
+table.greyGridTable {
+  font-family: arial,sans-serif;
+  border: 1px solid #FFFFFF;
+  width: 50%;
+  min-width: 100px;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.greyGridTable td, table.greyGridTable th {
+  border: 1px solid #FFFFFF;
+  padding: 3px 2px;
+}
+table.greyGridTable tbody td {
+  font-size: 12px;
+  font-weight: 100;
+}
+table.greyGridTable thead {
+  background: #FFFFFF;
+  border-bottom: 2px solid #000000;
+}
+table.greyGridTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333333;
+  text-align: left;
+  border-left: 0px solid #333333;
+}
+
+
+
+
+
+
+
+
+#colorLabel {
+  font-family: arial,sans-serif;
+  font-size: 11px;
+  height: 25px;
+  line-height: 24px;
+  min-width: 20px;
+  padding: 0 0 0 10px;
+  text-align: center;
+  user-select: none;
+  white-space: pre;
+}
+
+
+#colorPicker{
+	border-radius: 100%;
+	height: 18px;
+    width: 18px;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+	vertical-align: middle;
+}
+
+#colorPicker::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+#colorPicker::-webkit-color-swatch {
+    border: none;
+    border-radius: 100%;
+}
+
+
+
+
+/* CSS */
+.button-16 {
+  background-color: #FFFFFF;
+  border: 1px solid #CFDDF4;
+  border-radius: 6px;
+  color: #3c4043;
+  cursor: pointer;
+  font-family: arial,sans-serif;
+  font-size: 11px;
+  height: 25px;
+  line-height: 24px;
+  min-width: 50px;
+  padding: 0 16px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: pre;
+}
+
+.button-16:hover {
+  border-color: #dadce0;
+  box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
+  color: #202124;
+  background-color: #DCE5FF;
+}
+
+.button-16:focus {
+  border-color: #4285f4;
+  outline: none;
+}
+
+
+
+/* CSS */
+.button-4 {
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.button-4:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.button-4:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+
+.button-4:active {
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.button-4:focus {
+  outline: 1px transparent;
+}
+
+.button-4:before {
+  display: none;
+}
+
+.button-4:-webkit-details-marker {
+  display: none;
+}
+
+
